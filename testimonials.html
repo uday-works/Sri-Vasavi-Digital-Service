@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Sri Vasavi Digital</title>
+    
+    <meta name="description" content="Read reviews for Sri Vasavi Digital Service in Yemmiganur. Trusted by local businesses and students for Website Design and MCA Projects in Kurnool.">
+    <meta name="keywords" content="Sri Vasavi Digital Service reviews, Website design Yemmiganur feedback, Student project help reviews Yemmiganur, Web developer Kurnool testimonials">
+    <meta name="author" content="Somapuram Uday">
+
+    <title>Testimonials - Reviews for Website Design Yemmiganur | Sri Vasavi Digital</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        .category-label { margin-top: 4rem; margin-bottom: 1.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
-        .category-label h3 { font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
-        
         .lang-select { padding: 5px 10px; border-radius: 6px; border: 1px solid #cbd5e1; font-weight: 600; color: #334155; background: #f8fafc; cursor: pointer; font-size: 0.9rem; }
-        .float-wa { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 12px 20px; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; z-index: 1000; text-decoration: none; transition: transform 0.3s; }
-        .float-wa:hover { transform: translateY(-3px); }
+        
+        .float-wa, .chat-toggle { position: fixed; bottom: 20px; padding: 12px 20px; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; z-index: 2000; text-decoration: none; transition: transform 0.3s; cursor: pointer; }
+        .float-wa { right: 20px; background: #25D366; color: white; }
+        .chat-toggle { left: 20px; background: #0f172a; color: white; }
+        .float-wa:hover, .chat-toggle:hover { transform: translateY(-3px); }
 
-        .chat-toggle { position: fixed; bottom: 20px; left: 20px; background: #0f172a; color: white; padding: 12px 18px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        .chat-toggle:hover { transform: translateY(-3px); background: #334155; }
-        .chat-window { display: none; position: fixed; bottom: 80px; left: 20px; width: 300px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1001; overflow: hidden; border: 1px solid #e2e8f0; font-size: 0.9rem; }
+        .chat-window { display: none; position: fixed; bottom: 80px; left: 20px; width: 300px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2001; overflow: hidden; border: 1px solid #e2e8f0; font-size: 0.9rem; }
         .chat-header { background: #0f172a; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
         .chat-body { padding: 15px; max-height: 350px; overflow-y: auto; background: #f8fafc; }
         .bot-msg { background: #e2e8f0; padding: 8px 12px; border-radius: 8px 8px 8px 0; color: #334155; width: fit-content; max-width: 90%; margin-bottom: 10px; }
@@ -27,12 +30,18 @@
         .meet-link { display: block; text-align: center; background: #ea580c; color: white; padding: 8px; border-radius: 6px; margin-top: 10px; text-decoration: none; font-weight: 600; }
         
         .nav-gap { display: flex; gap: 2rem; align-items: center; }
-        @media (max-width: 768px) { .nav-gap { gap: 1rem; } }
+        @media (max-width: 768px) { 
+            .nav-gap { gap: 1rem; } 
+            .float-wa span, .chat-toggle span { display: none; }
+            .float-wa, .chat-toggle { padding: 15px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; }
+            .float-wa i, .chat-toggle i { font-size: 1.2rem; }
+            .chat-window { left: 50%; transform: translateX(-50%); bottom: 90px; width: 90%; }
+        }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/918522836109?text=Hi,%20I%20saw%20your%20Portfolio." class="float-wa" rel="noopener noreferrer" target="_blank">
+    <a href="https://wa.me/918522836109?text=Hi,%20I%20want%20to%20give%20feedback%20or%20ask%20a%20question." class="float-wa" rel="noopener noreferrer" target="_blank">
         <i class="fa-brands fa-whatsapp"></i> <span>Chat Now</span>
     </a>
 
@@ -45,7 +54,7 @@
             <span class="close-chat" onclick="toggleChat()" style="cursor:pointer;">×</span>
         </div>
         <div class="chat-body" id="chatBody">
-            <div class="chat-msg bot-msg">Hi! How can I help you today?</div>
+            <div class="chat-msg bot-msg">Hi! Want to know about our services?</div>
             <div class="chat-options">
                 <button class="chat-btn" onclick="askQuestion(1)">🔒 Student Privacy?</button>
                 <button class="chat-btn" onclick="askQuestion(2)">📍 Remote Support?</button>
@@ -74,94 +83,41 @@
                     <option value="kn">Kannada</option>
                 </select>
                 <a href="index.html" style="font-weight:600; color:#475569;">Home</a>
-                <a href="work.html" style="font-weight:700; color:#2563eb;">Portfolio</a>
-                <a href="testimonials.html" style="font-weight:600; color:#475569;">Testimonials</a>
+                <a href="work.html" style="font-weight:600; color:#475569;">Portfolio</a>
+                <a href="testimonials.html" style="font-weight:700; color:#f59e0b;">Testimonials</a>
             </div>
         </div>
     </nav>
 
-    <div class="container" style="padding: 3rem 1.5rem;">
-        
-        <h1 style="text-align:center; margin-bottom: 3rem;" id="portTitle">Our Work Portfolio</h1>
+    <div class="container" style="padding: 4rem 1.5rem;">
+        <h1 style="text-align:center; margin-bottom: 1rem;" id="pageTitle">Client Stories</h1>
+        <p style="text-align:center; color:#64748b; margin-bottom: 3rem;" id="pageSub">Real feedback from Shop Owners and Students in Yemmiganur.</p>
 
-        <div class="category-label">
-            <h3><i class="fa-solid fa-store" style="color:#2563eb;"></i> Business</h3>
-        </div>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-header" style="background:#eff6ff; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
-                    <i class="fa-solid fa-bed fa-2x"></i>
-                </div>
-                <div class="project-body">
-                    <h4>Luxury PG Hostel</h4>
-                    <p style="font-size:0.9rem; margin:10px 0;"><strong>Problem:</strong> Invisible on Maps.<br><strong>Solution:</strong> Website + SEO.<br><strong>Result:</strong> Daily Leads.</p>
-                    <a href="#" class="btn-link">View Live Site</a>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="stars" style="color:#f59e0b; margin-bottom:1rem;">★★★★★</div>
+                <p>"I was worried about my Viva. Uday explained the code logic on Google Meet, and I answered everything confidently."</p>
+                <div class="review-author" style="margin-top:1.5rem; display:flex; gap:10px; align-items:center;">
+                    <div class="author-icon" style="width:40px; height:40px; background:#2563eb; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700;">S</div>
+                    <div><span style="display:block; font-weight:700;">Sai Kumar</span><span style="font-size:0.85rem; color:#64748b;">B.Tech Student</span></div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-header" style="background:#eff6ff; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
-                    <i class="fa-solid fa-shirt fa-2x"></i>
-                </div>
-                <div class="project-body">
-                    <h4>Smart Laundry</h4>
-                    <p style="font-size:0.9rem; margin:10px 0;"><strong>Problem:</strong> Manual Ordering.<br><strong>Solution:</strong> WhatsApp Catalog.<br><strong>Result:</strong> Professionalism.</p>
-                    <a href="#" class="btn-link">View Live Site</a>
+
+            <div class="review-card">
+                <div class="stars" style="color:#f59e0b; margin-bottom:1rem;">★★★★★</div>
+                <p>"We wanted a simple website for our shop. He visited our shop once, took photos, and the rest was done online. Very fast service."</p>
+                <div class="review-author" style="margin-top:1.5rem; display:flex; gap:10px; align-items:center;">
+                    <div class="author-icon" style="width:40px; height:40px; background:#f97316; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700;">R</div>
+                    <div><span style="display:block; font-weight:700;">Ramesh</span><span style="font-size:0.85rem; color:#64748b;">Shop Owner</span></div>
                 </div>
             </div>
         </div>
 
-        <div class="category-label" style="border-color:#9333ea;">
-            <h3><i class="fa-solid fa-graduation-cap" style="color:#9333ea;"></i> Students</h3>
+        <div style="margin-top: 3rem; background: #faf5ff; border: 1px dashed #9333ea; padding: 2rem; border-radius: 12px; text-align: center;">
+            <h3 style="color: #9333ea;" id="feedbackTitle">Have we worked together?</h3>
+            <p style="color: #64748b; margin-bottom: 1rem;" id="feedbackSub">Send us your feedback on WhatsApp to get featured here.</p>
+            <a href="https://wa.me/918522836109?text=Hi%20Uday,%20here%20is%20my%20feedback..." class="btn-text" style="color: #9333ea; font-weight: 700;">Write a Review <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-header" style="background:#faf5ff; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
-                    <i class="fa-solid fa-lock fa-2x"></i>
-                </div>
-                <div class="project-body">
-                    <h4>Lung Cancer AI</h4>
-                    <p style="font-size:0.9rem; margin:10px 0;"><strong>Task:</strong> Final Year ML Project.<br><strong>Result:</strong> 'A' Grade in Viva.</p>
-                    <span style="color:#94a3b8; font-size:0.85rem;">Confidential</span>
-                </div>
-            </div>
-             <div class="project-card">
-                <div class="project-header" style="background:#faf5ff; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
-                    <i class="fa-solid fa-lock fa-2x"></i>
-                </div>
-                <div class="project-body">
-                    <h4>Network Security</h4>
-                    <p style="font-size:0.9rem; margin:10px 0;"><strong>Task:</strong> DDoS Simulation.<br><strong>Result:</strong> Full Documentation.</p>
-                    <span style="color:#94a3b8; font-size:0.85rem;">Confidential</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="category-label" style="border-color:#10b981;">
-            <h3><i class="fa-solid fa-code" style="color:#10b981;"></i> Others (Engineering)</h3>
-        </div>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-header" style="background:#ecfdf5; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
-                    <i class="fa-brands fa-github fa-2x"></i>
-                </div>
-                <div class="project-body">
-                    <h4>EduTrack</h4>
-                    <p style="font-size:0.9rem; margin:10px 0;">Full Stack Student Management System.</p>
-                    <a href="https://github.com/udaycodespace/EduTrack" target="_blank" class="btn-link">GitHub Link</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-header" style="background:#ecfdf5; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
-                    <i class="fa-brands fa-github fa-2x"></i>
-                </div>
-                <div class="project-body">
-                    <h4>Forest Fire AI</h4>
-                    <p style="font-size:0.9rem; margin:10px 0;">Disaster Prediction using Scikit-Learn.</p>
-                    <a href="https://github.com/udaycodespace/Predict-forest-fire" target="_blank" class="btn-link">GitHub Link</a>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <footer style="background:#0f172a; color:white; padding:2rem; text-align:center;">
@@ -170,28 +126,51 @@
 
     <script>
         const translations = {
-            en: { portTitle: "Our Work Portfolio" },
-            te: { portTitle: "Maa Work Portfolio" },
-            hi: { portTitle: "Hamaara Work Portfolio" },
-            kn: { portTitle: "Namma Work Portfolio" }
+            en: {
+                pageTitle: "Client Stories",
+                pageSub: "Real feedback from Shop Owners and Students in Yemmiganur.",
+                feedbackTitle: "Have we worked together?",
+                feedbackSub: "Send us your feedback on WhatsApp to get featured here."
+            },
+            te: {
+                pageTitle: "మా Client Stories",
+                pageSub: "Yemmiganur షాప్ ఓనర్స్ మరియు Students ఇచ్చిన <b>Real Feedback</b>.",
+                feedbackTitle: "మనం కలిసి <b>Work</b> చేశామా?",
+                feedbackSub: "WhatsApp లో మీ <b>Feedback</b> పంపండి, ఇక్కడ చూపిస్తాము."
+            },
+            hi: {
+                pageTitle: "हमारे Client Stories",
+                pageSub: "Yemmiganur के Shop Owners और Students का <b>Real Feedback</b>.",
+                feedbackTitle: "क्या हमने साथ <b>Work</b> किया है?",
+                feedbackSub: "WhatsApp पर अपना <b>Feedback</b> भेजें, हम यहाँ दिखाएंगे।"
+            },
+            kn: {
+                pageTitle: "ನಮ್ಮ Client Stories",
+                pageSub: "Yemmiganur ನ Shop Owners ಮತ್ತು Students ಕೊಟ್ಟಿರುವ <b>Real Feedback</b>.",
+                feedbackTitle: "ನಾವು ಜೊತೆಗೆ <b>Work</b> ಮಾಡಿದ್ದೀವಾ?",
+                feedbackSub: "WhatsApp ನಲ್ಲಿ ನಿಮ್ಮ <b>Feedback</b> ಕಳುಹಿಸಿ."
+            }
         };
 
         function changeLanguage() {
             const lang = document.getElementById("languageSelector").value;
-            document.getElementById("portTitle").innerText = translations[lang].portTitle;
+            const t = translations[lang];
+            document.getElementById("pageTitle").innerHTML = t.pageTitle;
+            document.getElementById("pageSub").innerHTML = t.pageSub;
+            document.getElementById("feedbackTitle").innerHTML = t.feedbackTitle;
+            document.getElementById("feedbackSub").innerHTML = t.feedbackSub;
         }
 
         function toggleChat() {
             const chat = document.getElementById('chatWindow');
             chat.style.display = (chat.style.display === 'block') ? 'none' : 'block';
         }
-
         function askQuestion(type) {
             const chatBody = document.getElementById('chatBody');
             let answer = "";
-            if (type === 1) answer = "<strong>Privacy:</strong> We never leak code or data.";
-            else if (type === 2) answer = "<strong>Remote:</strong> We connect via Google Meet.";
-            else if (type === 3) answer = "<strong>Training:</strong> Yes, I guide you step-by-step.";
+            if (type === 1) answer = "<strong>Privacy Policy:</strong> Don't worry! We respect your privacy. We never leak code or data.";
+            else if (type === 2) answer = "<strong>Remote Support:</strong> We connect via Google Meet to explain code and solve issues instantly.";
+            else if (type === 3) answer = "<strong>Training:</strong> Yes! I can guide you step-by-step and train you on the logic.";
             const msgDiv = document.createElement('div');
             msgDiv.className = 'chat-msg bot-msg';
             msgDiv.innerHTML = answer;

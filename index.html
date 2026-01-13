@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="description" content="Sri Vasavi Digital Service in Yemmiganur: Best Website Design, MCA Final Year Project Help, and Digital Marketing for local businesses. Affordable Web Development in Kurnool District.">
-    <meta name="keywords" content="Website design Yemmiganur, Student project websites Yemmiganur, MCA final year project help, Business website development Yemmiganur, Digital marketing agency Yemmiganur, Local SEO services Kurnool">
+    <meta name="keywords" content="Website design Yemmiganur, Business website development Yemmiganur, Affordable web developer near Yemmiganur, Student project websites Yemmiganur, MCA final year project help Yemmiganur, Web development training students Kurnool, Digital marketing agency Yemmiganur, Ecommerce website Yemmiganur businesses, Local SEO services Kurnool district">
     <meta name="author" content="Somapuram Uday">
+    <meta name="robots" content="index, follow">
     
-    <title>Sri Vasavi Digital | Website Design & Student Projects Yemmiganur</title>
+    <title>Website Design in Yemmiganur | Sri Vasavi Digital Service</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,38 +18,94 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Navbar Smoothness & Size Increase */
-        .navbar {
-            padding: 1.2rem 0; /* Increased size */
-            transition: all 0.3s ease-in-out;
-        }
-        
-        .navbar a {
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-        .navbar a:hover {
-            transform: translateY(-2px); /* Subtle lift effect */
-        }
+        /* Navbar Smoothness & Size */
+        .navbar { padding: 1.2rem 0; transition: all 0.3s ease-in-out; }
+        .navbar a { transition: color 0.3s ease, transform 0.2s ease; }
+        .navbar a:hover { transform: translateY(-2px); }
 
-        /* Language Dropdown Style */
+        /* Language Dropdown */
         .lang-select {
-            padding: 8px 12px;
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-            font-weight: 600;
-            color: #334155;
-            background: #f8fafc;
-            cursor: pointer;
-            margin-left: 15px;
-            font-size: 0.9rem;
-            transition: border-color 0.3s;
+            padding: 8px 12px; border-radius: 8px; border: 1px solid #cbd5e1;
+            font-weight: 600; color: #334155; background: #f8fafc;
+            cursor: pointer; margin-left: 15px; font-size: 0.9rem; transition: border-color 0.3s;
         }
         .lang-select:hover { border-color: #2563eb; }
         
-        /* Chatbot Styles */
-        .chat-toggle { position: fixed; bottom: 20px; left: 20px; background: #0f172a; color: white; padding: 12px 18px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        .chat-toggle:hover { transform: translateY(-3px); background: #334155; }
-        .chat-window { display: none; position: fixed; bottom: 80px; left: 20px; width: 300px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1001; overflow: hidden; border: 1px solid #e2e8f0; font-size: 0.9rem; }
+        /* === IMAGE TUNING & ENLARGE CURSOR === */
+        .project-img {
+            width: 100%;
+            height: 220px; /* Increased height for better visibility */
+            object-fit: cover;
+            object-position: top center; /* Focuses on the top (Header) of the site */
+            border-bottom: 1px solid #e2e8f0;
+            display: block;
+            cursor: zoom-in; /* Tells user they can click */
+            transition: opacity 0.3s;
+        }
+        .project-img:hover { opacity: 0.9; }
+
+        /* === LIGHTBOX (FULL SCREEN IMAGE) === */
+        .lightbox {
+            display: none; position: fixed; z-index: 3000;
+            padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%;
+            overflow: auto; background-color: rgba(0,0,0,0.9);
+        }
+        .lightbox-content {
+            margin: auto; display: block; width: 80%; max-width: 1000px;
+            border-radius: 8px; box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+        .close-lightbox {
+            position: absolute; top: 20px; right: 35px;
+            color: #f1f1f1; font-size: 40px; font-weight: bold;
+            transition: 0.3s; cursor: pointer;
+        }
+        .close-lightbox:hover { color: #bbb; }
+
+        /* === HERO BUTTONS === */
+        .hero-actions {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1rem; flex-wrap: wrap; margin-top: 2rem;
+        }
+        
+        /* 1. Primary Button (Blue) */
+        .btn-primary {
+            background: #2563eb; color: white; padding: 12px 24px;
+            border-radius: 8px; font-weight: 600; text-decoration: none;
+            transition: 0.3s; border: 2px solid #2563eb;
+        }
+        .btn-primary:hover { background: #1d4ed8; border-color: #1d4ed8; }
+
+        /* 2. Secondary Button (Outline Blue - See Our Work) */
+        .btn-secondary {
+            background: transparent; color: #2563eb; padding: 12px 24px;
+            border-radius: 8px; font-weight: 600; text-decoration: none;
+            border: 2px solid #2563eb; transition: 0.3s;
+        }
+        .btn-secondary:hover { background: #eff6ff; }
+
+        /* 3. Location Button (Gray/Red) */
+        .btn-location {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-weight: 700; color: #475569; text-decoration: none;
+            padding: 12px 24px; border-radius: 8px;
+            background: #f8fafc; border: 2px solid #e2e8f0;
+            transition: 0.3s;
+        }
+        .btn-location:hover { background: #e2e8f0; color: #0f172a; border-color: #cbd5e1; }
+
+        /* === FLOATING WIDGETS === */
+        .float-wa, .chat-toggle {
+            position: fixed; bottom: 20px; z-index: 2000;
+            padding: 12px 20px; border-radius: 50px; font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px;
+            transition: transform 0.3s; cursor: pointer; text-decoration: none;
+        }
+        .float-wa { right: 20px; background: #25D366; color: white; }
+        .chat-toggle { left: 20px; background: #0f172a; color: white; }
+        .float-wa:hover, .chat-toggle:hover { transform: translateY(-3px); }
+
+        /* Chat Window */
+        .chat-window { display: none; position: fixed; bottom: 80px; left: 20px; width: 300px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2001; overflow: hidden; border: 1px solid #e2e8f0; font-size: 0.9rem; }
         .chat-header { background: #0f172a; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
         .chat-body { padding: 15px; max-height: 350px; overflow-y: auto; background: #f8fafc; }
         .bot-msg { background: #e2e8f0; padding: 8px 12px; border-radius: 8px 8px 8px 0; color: #334155; width: fit-content; max-width: 90%; margin-bottom: 10px; }
@@ -59,10 +116,27 @@
         .meet-link:hover { background: #c2410c; }
         
         .nav-gap { display: flex; gap: 2rem; align-items: center; }
-        @media (max-width: 768px) { .nav-gap { gap: 1rem; } .lang-select { font-size: 0.8rem; padding: 3px; } }
+
+        /* === MOBILE FIXES === */
+        @media (max-width: 768px) {
+            .nav-gap { gap: 1rem; }
+            .lang-select { font-size: 0.8rem; padding: 3px; }
+            .float-wa span, .chat-toggle span { display: none; }
+            .float-wa, .chat-toggle { padding: 15px; border-radius: 50%; width: 50px; height: 50px; justify-content: center; }
+            .float-wa i, .chat-toggle i { font-size: 1.2rem; }
+            .chat-window { left: 50%; transform: translateX(-50%); bottom: 90px; width: 90%; }
+            .hero-actions { flex-direction: column; gap: 10px; width: 100%; }
+            .btn-primary, .btn-secondary, .btn-location { width: 100%; text-align: center; justify-content: center; }
+            .lightbox-content { width: 95%; margin-top: 30%; }
+        }
     </style>
 </head>
 <body>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox" onclick="closeLightbox()">×</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
 
     <a href="https://wa.me/918522836109?text=Hi,%20I%20have%20a%20query%20regarding%20websites%20or%20projects" class="float-wa" rel="noopener noreferrer" target="_blank">
         <i class="fa-brands fa-whatsapp"></i> <span>Chat Now</span>
@@ -71,6 +145,7 @@
     <div class="chat-toggle" onclick="toggleChat()">
         <i class="fa-regular fa-comments"></i> <span>Quick Help</span>
     </div>
+
     <div class="chat-window" id="chatWindow">
         <div class="chat-header">
             <h4>Sri Vasavi Help Desk</h4>
@@ -121,7 +196,12 @@
             
             <div class="hero-actions">
                 <a href="#contact" class="btn-primary" id="btnQuote">Get a Free Quote</a>
-                <a href="work.html" class="btn-text" id="btnWork" style="margin-left: 1rem; text-decoration: underline;">See Our Work</a>
+                
+                <a href="work.html" class="btn-secondary" id="btnWork">See Our Work</a>
+                
+                <a href="https://www.google.com/maps/place/15%C2%B045'59.3%22N+77%C2%B028'53.1%22E/@15.7664812,77.4788532,17z/data=!3m1!4b1!4m4!3m3!8m2!3d15.7664812!4d77.4814281?hl=en&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-location">
+                    <i class="fa-solid fa-location-dot" style="color: #dc2626;"></i> Shop Location
+                </a>
             </div>
         </div>
     </header>
@@ -133,7 +213,6 @@
                     <div class="icon-circle"><i class="fa-solid fa-store"></i></div>
                     <h3 id="trustTitle">Local Shop for Trust</h3>
                     <p id="trustText">We are physically present in Yemmiganur. <strong>Your money and project are safe.</strong></p>
-                    
                     <a href="https://www.google.com/maps/place/15%C2%B045'59.3%22N+77%C2%B028'53.1%22E/@15.7664812,77.4788532,17z/data=!3m1!4b1!4m4!3m3!8m2!3d15.7664812!4d77.4814281?hl=en&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="map-link">
                         <i class="fa-solid fa-map-location-dot"></i> View Shop Location
                     </a>
@@ -151,10 +230,9 @@
         <div class="container">
             <h2 class="section-title" id="worksTitle">Selected Works</h2>
             <div class="project-grid">
+                
                 <div class="project-card">
-                    <div class="project-header" style="background: #eff6ff; height: 160px; display: flex; align-items: center; justify-content: center; color: #64748b;">
-                        <i class="fa-solid fa-image fa-2x"></i>   [PG Website Screenshot]
-                    </div>
+                    <img src="images/PG-Hostel.png" alt="PG Hostel Website" class="project-img" onclick="openLightbox(this)">
                     <div class="project-body">
                         <span style="background: #0f172a; color: white; padding: 2px 8px; font-size: 0.7rem; border-radius: 4px; text-transform: uppercase;">Business</span>
                         <h4 style="margin-top: 10px;">Luxury PG & Hostel</h4>
@@ -167,9 +245,7 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header" style="background: #faf5ff; height: 160px; display: flex; align-items: center; justify-content: center; color: #64748b;">
-                        <i class="fa-solid fa-lock fa-2x"></i>   [Confidential]
-                    </div>
+                    <img src="images/Lung-Cancer-AI.png" alt="Lung Cancer AI Project" class="project-img" onclick="openLightbox(this)">
                     <div class="project-body">
                         <span style="background: #2563eb; color: white; padding: 2px 8px; font-size: 0.7rem; border-radius: 4px; text-transform: uppercase;">Student</span>
                         <h4 style="margin-top: 10px;">Lung Cancer AI</h4>
@@ -182,9 +258,7 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header" style="background: #f0fdf4; height: 160px; display: flex; align-items: center; justify-content: center; color: #64748b;">
-                        <i class="fa-brands fa-github fa-2x"></i>
-                    </div>
+                    <img src="images/EduTrack-System.png" alt="EduTrack System" class="project-img" onclick="openLightbox(this)">
                     <div class="project-body">
                         <span style="background: #059669; color: white; padding: 2px 8px; font-size: 0.7rem; border-radius: 4px; text-transform: uppercase;">Engineering</span>
                         <h4 style="margin-top: 10px;">EduTrack System</h4>
@@ -286,6 +360,18 @@
     </footer>
 
     <script>
+        // === LIGHTBOX LOGIC ===
+        function openLightbox(img) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            lightbox.style.display = "block";
+            lightboxImg.src = img.src;
+        }
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+
+        // === TRANSLATIONS ===
         const translations = {
             en: {
                 heroTitle: "Websites for <span class='highlight'>Business</span><br>& Support for <span class='highlight-blue'>Students</span>.",
@@ -358,7 +444,6 @@
             document.getElementById("formSub").innerText = t.formSub;
         }
 
-        // WhatsApp Form Logic
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
@@ -370,7 +455,6 @@
             window.open(`https://wa.me/${phoneNumber}?text=${finalMessage}`, '_blank');
         });
 
-        // Chatbot Logic
         function toggleChat() {
             const chat = document.getElementById('chatWindow');
             chat.style.display = (chat.style.display === 'block') ? 'none' : 'block';
