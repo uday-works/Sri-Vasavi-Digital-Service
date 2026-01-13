@@ -200,7 +200,7 @@
                 <a href="work.html" class="btn-secondary" id="btnWork">See Our Work</a>
                 
                 <a href="https://www.google.com/maps/place/15%C2%B045'59.3%22N+77%C2%B028'53.1%22E/@15.7664812,77.4788532,17z/data=!3m1!4b1!4m4!3m3!8m2!3d15.7664812!4d77.4814281?hl=en&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="btn-location">
-                    <i class="fa-solid fa-location-dot" style="color: #dc2626;"></i> Shop Location
+                    <i class="fa-solid fa-location-dot" style="color: #dc2626;"></i> <span id="locBtnText">Office Location</span>
                 </a>
             </div>
         </div>
@@ -211,10 +211,10 @@
             <div class="logic-grid">
                 <div class="logic-card local">
                     <div class="icon-circle"><i class="fa-solid fa-store"></i></div>
-                    <h3 id="trustTitle">Local Shop for Trust</h3>
+                    <h3 id="trustTitle">Local Office for Trust</h3>
                     <p id="trustText">We are physically present in Yemmiganur. <strong>Your money and project are safe.</strong></p>
                     <a href="https://www.google.com/maps/place/15%C2%B045'59.3%22N+77%C2%B028'53.1%22E/@15.7664812,77.4788532,17z/data=!3m1!4b1!4m4!3m3!8m2!3d15.7664812!4d77.4814281?hl=en&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="map-link">
-                        <i class="fa-solid fa-map-location-dot"></i> View Shop Location
+                        <i class="fa-solid fa-map-location-dot"></i> <span id="locLinkText">View Office Location</span>
                     </a>
                 </div>
                 <div class="logic-card remote">
@@ -240,7 +240,7 @@
                             <p><strong>Problem:</strong> Invisible on Google Maps.</p>
                             <p style="background: #f0fdf4; color: #166534; padding: 5px; border-radius: 4px; margin-top: 5px; font-weight: 600;">Result: Funnels valid customers.</p>
                         </div>
-                        <a href="#" class="btn-link" style="margin-top: 10px; display: inline-block;">View Live Site</a>
+                        <a href="https://uday-works.github.io/pg-for-gents-hsr-layout-bangalore/" target="_blank" rel="noopener noreferrer" class="btn-link" style="margin-top: 10px; display: inline-block;">View Live Site</a>
                     </div>
                 </div>
 
@@ -371,59 +371,67 @@
             document.getElementById("lightbox").style.display = "none";
         }
 
-        // === TRANSLATIONS ===
+        // === TRANSLATIONS (Updated to Office) ===
         const translations = {
             en: {
                 heroTitle: "Websites for <span class='highlight'>Business</span><br>& Support for <span class='highlight-blue'>Students</span>.",
                 heroSub: "We don't sell templates. We build custom solutions. Assignments, Projects, and Real Explanations.",
                 btnQuote: "Get a Free Quote",
                 btnWork: "See Our Work",
-                trustTitle: "Local Shop for Trust",
+                trustTitle: "Local Office for Trust",
                 trustText: "We are physically present in Yemmiganur. <strong>Your money and project are safe.</strong>",
                 speedTitle: "Remote for Speed",
                 speedText: "Connect via Google Meet. <strong>Save your travel time. We solve it instantly online.</strong>",
                 worksTitle: "Selected Works",
                 formTitle: "Get a Cost Estimate",
-                formSub: "Fill this. It opens WhatsApp directly."
+                formSub: "Fill this. It opens WhatsApp directly.",
+                locBtnText: "Office Location",
+                locLinkText: "View Office Location"
             },
             te: { 
                 heroTitle: "<span class='highlight'>Business</span> కోసం Websites<br>మరియు <span class='highlight-blue'>Students</span> కోసం Project Support.",
                 heroSub: "మేము Templates అమ్మము. మీ కోసం <b>Custom Solutions</b> బిల్డ్ చేస్తాము. Assignments, Projects మరియు <b>Real Explanations</b> ఇస్తాము.",
                 btnQuote: "Free Quote పొందండి",
                 btnWork: "మా Work చూడండి",
-                trustTitle: "Trust కోసం Local Shop",
+                trustTitle: "Trust కోసం Local Office",
                 trustText: "మేము <b>Yemmiganur</b> లోనే ఉన్నాము. మీ <b>Money</b> మరియు <b>Project</b> safe గా ఉంటుంది.",
                 speedTitle: "Speed కోసం Remote",
                 speedText: "Google Meet ద్వారా Connect అవ్వండి. మీ <b>Travel Time</b> సేవ్ చేసుకోండి. Online లో <b>Instant</b> గా Solve చేస్తాము.",
                 worksTitle: "మా Selected Works",
                 formTitle: "Cost Estimate పొందండి",
-                formSub: "దీనిని Fill చేయండి. Direct గా WhatsApp ఓపెన్ అవుతుంది."
+                formSub: "దీనిని Fill చేయండి. Direct గా WhatsApp ఓపెన్ అవుతుంది.",
+                locBtnText: "Office Location",
+                locLinkText: "View Office Location"
             },
             hi: {
                 heroTitle: "<span class='highlight'>Business</span> के लिए Websites<br>और <span class='highlight-blue'>Students</span> के लिए Project Support.",
                 heroSub: "हम Templates नहीं बेचते. हम <b>Custom Solutions</b> बनाते हैं. Assignments, Projects और <b>Real Explanations</b> देते हैं.",
                 btnQuote: "Free Quote पाएं",
                 btnWork: "हमारा Work देखें",
-                trustTitle: "Trust के लिए Local Shop",
+                trustTitle: "Trust के लिए Local Office",
                 trustText: "हम <b>Yemmiganur</b> में ही हैं. आपका <b>Money</b> और <b>Project</b> safe रहेगा.",
                 speedTitle: "Speed के लिए Remote",
                 speedText: "Google Meet से Connect करें. अपना <b>Travel Time</b> बचाएं. हम Online <b>Instant Solve</b> करेंगे.",
                 worksTitle: "हमारे Selected Works",
                 formTitle: "Cost Estimate पाएं",
-                formSub: "इसे भरें. यह सीधा WhatsApp ओपन करेगा."
+                formSub: "इसे भरें. यह सीधा WhatsApp ओपन करेगा.",
+                locBtnText: "Office Location",
+                locLinkText: "View Office Location"
             },
             kn: {
                 heroTitle: "<span class='highlight'>Business</span> ಗಾಗಿ Websites<br>ಮತ್ತು <span class='highlight-blue'>Students</span> ಗಾಗಿ Project Support.",
                 heroSub: "ನಾವು Templates ಮಾರುವುದಿಲ್ಲ. ನಾವು <b>Custom Solutions</b> ಬಿಲ್ಡ್ ಮಾಡುತ್ತೇವೆ. Assignments, Projects ಮತ್ತು <b>Real Explanations</b> ಕೊಡುತ್ತೇವೆ.",
                 btnQuote: "Free Quote ಪಡೆಯಿರಿ",
                 btnWork: "ನಮ್ಮ Work ನೋಡಿ",
-                trustTitle: "Trust ಗಾಗಿ Local Shop",
+                trustTitle: "Trust ಗಾಗಿ Local Office",
                 trustText: "ನಾವು <b>Yemmiganur</b> ನಲ್ಲೇ ಇದ್ದೀವಿ. ನಿಮ್ಮ <b>Money</b> ಮತ್ತು <b>Project</b> safe ಆಗಿ ಇರುತ್ತದೆ.",
                 speedTitle: "Speed ಗಾಗಿ Remote",
                 speedText: "Google Meet ಮೂಲಕ Connect ಆಗಿ. ನಿಮ್ಮ <b>Travel Time</b> ಉಳಿಸಿ. ನಾವು Online ನಲ್ಲಿ <b>Instant Solve</b> ಮಾಡುತ್ತೇವೆ.",
                 worksTitle: "ನಮ್ಮ Selected Works",
                 formTitle: "Cost Estimate ಪಡೆಯಿರಿ",
-                formSub: "ಇದನ್ನು Fill ಮಾಡಿ. ಇದು ನೇರವಾಗಿ WhatsApp ಓಪನ್ ಆಗುತ್ತದೆ."
+                formSub: "ಇದನ್ನು Fill ಮಾಡಿ. ಇದು ನೇರವಾಗಿ WhatsApp ಓಪನ್ ಆಗುತ್ತದೆ.",
+                locBtnText: "Office Location",
+                locLinkText: "View Office Location"
             }
         };
 
@@ -442,6 +450,8 @@
             document.getElementById("worksTitle").innerText = t.worksTitle;
             document.getElementById("formTitle").innerText = t.formTitle;
             document.getElementById("formSub").innerText = t.formSub;
+            document.getElementById("locBtnText").innerText = t.locBtnText;
+            document.getElementById("locLinkText").innerText = t.locLinkText;
         }
 
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
