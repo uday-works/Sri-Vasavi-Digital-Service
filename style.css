@@ -1,4 +1,6 @@
-/* --- RESET & BASICS --- */
+/* =========================================
+   1. GLOBAL RESET & DESKTOP STYLES
+   ========================================= */
 :root {
     --primary: #2563eb;       /* Blue */
     --dark: #0f172a;          /* Dark Text */
@@ -14,7 +16,9 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-body {
+html, body {
+    overflow-x: hidden; /* CRITICAL: Prevents the "side drag" issue on mobile */
+    width: 100%;
     background-color: var(--light);
     color: var(--dark);
     line-height: 1.6;
@@ -26,13 +30,13 @@ ul { list-style: none; }
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 1.5rem; /* Padding prevents text touching edges on mobile */
+    padding: 0 1.5rem;
 }
 
 /* --- NAVBAR --- */
 .navbar {
     background: var(--white);
-    padding: 1rem 0;
+    padding: 1.2rem 0;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
@@ -51,13 +55,27 @@ ul { list-style: none; }
     gap: 0.8rem;
 }
 
-.brand-icon {
-    font-size: 1.5rem;
-    color: var(--primary);
-}
-
+.brand-icon { font-size: 1.5rem; color: var(--primary); }
 .brand-text h2 { font-size: 1.2rem; font-weight: 800; line-height: 1; }
 .brand-text p { font-size: 0.75rem; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Wrapper for Links + Quote + Lang (Desktop Layout) */
+.nav-gap {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.lang-select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-weight: 600;
+    color: #334155;
+    background: #f8fafc;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
 
 .btn-call-nav {
     background: #eff6ff;
@@ -89,7 +107,7 @@ ul { list-style: none; }
 }
 
 .hero h1 {
-    font-size: 2.5rem; /* Large on desktop */
+    font-size: 2.5rem;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 1rem;
@@ -106,276 +124,221 @@ ul { list-style: none; }
     margin: 0 auto 2rem auto;
 }
 
+/* Hero Buttons Layout */
+.hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
 .btn-primary {
     display: inline-block;
     background: var(--primary);
     color: var(--white);
-    padding: 0.8rem 2rem;
+    padding: 12px 24px;
     border-radius: 8px;
     font-weight: 600;
     transition: 0.3s;
-    border: none;
+    border: 2px solid var(--primary);
     cursor: pointer;
 }
-
 .btn-primary:hover { background: #1d4ed8; }
 
-/* --- TRUST & LOGIC SECTION --- */
-.trust-logic-section { padding: 3rem 0; }
-
-.logic-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 Columns on Desktop */
-    gap: 2rem;
-}
-
-.logic-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-}
-
-.icon-circle {
-    width: 50px;
-    height: 50px;
-    background: #eff6ff;
+.btn-secondary {
+    background: transparent;
     color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--primary);
+    transition: 0.3s;
 }
+.btn-secondary:hover { background: #eff6ff; }
 
-.logic-card h3 { margin-bottom: 0.5rem; }
-.logic-card p { font-size: 0.95rem; color: var(--gray); }
+.btn-location {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 700; color: #475569; text-decoration: none;
+    padding: 12px 24px; border-radius: 8px;
+    background: #f8fafc; border: 2px solid #e2e8f0;
+    transition: 0.3s;
+}
+.btn-location:hover { background: #e2e8f0; color: #0f172a; }
 
-/* --- BENTO BOX (SERVICES) --- */
-.bento-section { padding: 4rem 0; }
+/* --- SECTIONS (Trust, Bento, Projects) --- */
+.trust-logic-section { padding: 3rem 0; }
+.projects-section { padding: 4rem 0; background: var(--white); }
 .section-title { text-align: center; font-size: 2rem; margin-bottom: 2rem; }
 
-.bento-grid {
+.logic-grid, .bento-grid, .project-grid, .team-grid, .review-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 Columns Desktop */
-    gap: 1.5rem;
-}
-
-.bento-box {
-    background: var(--white);
-    padding: 2.5rem;
-    border-radius: 16px;
-    border: 1px solid #e2e8f0;
-    position: relative;
-    overflow: hidden;
-}
-
-.tag {
-    display: inline-block;
-    background: var(--dark);
-    color: var(--white);
-    padding: 0.3rem 0.8rem;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-}
-.blue-tag { background: #0ea5e9; }
-
-.feature-list { margin-top: 1.5rem; }
-.feature-list li { margin-bottom: 0.8rem; font-size: 0.95rem; color: var(--gray); }
-.feature-list i { color: var(--primary); margin-right: 8px; }
-
-.btn-text {
-    display: inline-block;
-    margin-top: 1.5rem;
-    color: var(--primary);
-    font-weight: 700;
-}
-
-/* --- PROJECTS SECTION --- */
-.projects-section { padding: 4rem 0; background: var(--white); }
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Columns Desktop */
     gap: 2rem;
 }
+/* Desktop Columns */
+.logic-grid, .bento-grid, .team-grid, .review-grid { grid-template-columns: 1fr 1fr; }
+.project-grid { grid-template-columns: repeat(3, 1fr); }
 
-.project-card {
-    border: 1px solid #e2e8f0;
+/* Card Styles */
+.logic-card, .bento-box, .project-card, .team-card, .review-card {
+    background: var(--white);
     border-radius: 12px;
-    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    padding: 2rem; /* Default padding */
+}
+.project-card { padding: 0; overflow: hidden; } /* Reset padding for project cards */
+
+/* Icons */
+.icon-circle {
+    width: 50px; height: 50px; background: #eff6ff; color: var(--primary);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; margin-bottom: 1rem; font-size: 1.2rem;
+}
+.icon-box-team {
+    width: 60px; height: 60px; margin: 0 auto 1rem auto;
+    background: #f8fafc; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--dark); font-size: 1.5rem;
 }
 
-.project-header {
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Project Card Specifics */
+.project-img {
+    width: 100%; height: 220px;
+    object-fit: cover; object-position: top center;
+    border-bottom: 1px solid #e2e8f0;
+    cursor: zoom-in; transition: opacity 0.3s;
 }
-
 .project-body { padding: 1.5rem; }
 .project-body h4 { margin-bottom: 0.5rem; }
 .project-body p { font-size: 0.9rem; color: var(--gray); margin-bottom: 1rem; }
-
-.btn-link {
-    font-size: 0.85rem;
-    color: var(--primary);
-    font-weight: 600;
-}
-.btn-link.disabled { color: #94a3b8; cursor: not-allowed; }
-
-/* --- REVIEWS --- */
-.review-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-.review-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-.stars { color: #f59e0b; margin-bottom: 1rem; }
-.review-author {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-.author-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--primary);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-}
+.btn-link { font-size: 0.85rem; color: var(--primary); font-weight: 600; background: #eff6ff; padding: 8px 16px; border-radius: 6px; display: inline-block; }
 
 /* --- FORM --- */
 .form-section { padding: 4rem 0; background: #eff6ff; }
-.form-wrapper {
-    max-width: 500px;
-    margin: 0 auto;
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1);
-}
-.form-title { text-align: center; margin-bottom: 0.5rem; }
-.form-sub { text-align: center; color: var(--gray); margin-bottom: 1.5rem; font-size: 0.9rem; }
-
-.form-group { margin-bottom: 1rem; }
+.form-wrapper { max-width: 500px; margin: 0 auto; background: var(--white); padding: 2rem; border-radius: 16px; }
 .form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
-.form-group input, .form-group select, .form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 1rem;
-}
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.8rem; border: 1px solid #e2e8f0; border-radius: 8px; }
 .full-width { width: 100%; }
-
-/* --- TEAM --- */
-.team-section { padding: 4rem 0; }
-.team-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-}
-.team-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    text-align: center;
-}
-.icon-box-team {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 1rem auto;
-    background: #f8fafc;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--dark);
-    font-size: 1.5rem;
-}
-.role { color: var(--primary); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem; }
 
 /* --- FOOTER --- */
 footer { background: var(--dark); color: var(--white); padding: 3rem 0; }
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-.btn-white {
-    background: var(--white);
-    color: var(--dark);
-    padding: 0.6rem 1.5rem;
-    border-radius: 6px;
-    font-weight: 600;
-}
+.footer-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.btn-white { background: var(--white); color: var(--dark); padding: 0.6rem 1.5rem; border-radius: 6px; font-weight: 600; }
 .copyright { text-align: center; color: #94a3b8; font-size: 0.85rem; border-top: 1px solid #334155; padding-top: 1.5rem; }
 
-/* --- WHATSAPP FLOAT --- */
-.float-wa {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 50px;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 1000;
-    transition: transform 0.3s;
+/* --- FLOATING WIDGETS (Desktop Defaults) --- */
+.float-wa, .chat-toggle {
+    position: fixed; bottom: 20px; z-index: 2000;
+    padding: 12px 20px; border-radius: 50px; font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px;
+    transition: transform 0.3s; text-decoration: none; color: white; cursor: pointer;
 }
-.float-wa:hover { transform: translateY(-3px); }
+.float-wa { right: 20px; background: #25D366; }
+.chat-toggle { left: 20px; background: #0f172a; }
+.float-wa:hover, .chat-toggle:hover { transform: translateY(-3px); }
+
+/* --- LIGHTBOX --- */
+.lightbox { display: none; position: fixed; z-index: 3000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
+.lightbox-content { margin: auto; display: block; width: 80%; max-width: 1000px; border-radius: 8px; }
+.close-lightbox { position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
+
 
 /* =========================================
-   MOBILE RESPONSIVENESS (MEDIA QUERIES)
+   2. MOBILE SPECIFIC UI/UX (THE FIX)
    ========================================= */
 @media (max-width: 768px) {
     
-    /* Hero Text Size */
-    .hero h1 { font-size: 2rem; }
+    /* 1. Fix Horizontal Scroll (The "Blank Space" Issue) */
+    .container {
+        padding: 0 1rem; /* Smaller padding */
+        width: 100%;
+    }
+
+    /* 2. Fix Navbar (Stacking) */
+    .nav-flex {
+        flex-direction: column; /* Stack Logo on top */
+        gap: 1rem;
+    }
     
-    /* Make all Grids Stack Vertically (1 Column) */
-    .logic-grid, 
-    .bento-grid, 
-    .project-grid, 
-    .team-grid, 
-    .review-grid {
-        grid-template-columns: 1fr; /* Stack items */
+    .nav-gap {
+        flex-direction: column; /* Stack Links vertically */
+        width: 100%;
+        gap: 0.8rem;
+    }
+    
+    .nav-gap a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+        background: #f8fafc; /* Light bg to make them look like buttons */
+        border-radius: 6px;
+    }
+
+    .lang-select { width: 100%; text-align: center; }
+    .btn-call-nav { width: 100%; text-align: center; }
+
+    /* 3. Fix Hero Section (Fit to Screen) */
+    .hero h1 { font-size: 2rem; } /* Smaller text */
+    
+    .hero-actions {
+        flex-direction: column; /* Stack buttons */
+        gap: 10px;
+        width: 100%;
+    }
+    
+    /* Make buttons full width for easy tapping */
+    .btn-primary, .btn-secondary, .btn-location {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* 4. Fix Grids (One Column Mode) */
+    .logic-grid, .bento-grid, .project-grid, .team-grid, .review-grid {
+        grid-template-columns: 1fr; /* Force 1 column */
         gap: 1.5rem;
     }
 
-    /* Footer Stacking */
+    /* 5. Fix Footer */
     .footer-content {
         flex-direction: column;
         text-align: center;
         gap: 1.5rem;
     }
 
-    /* Adjust Padding */
-    .bento-box { padding: 1.5rem; }
+    /* 6. Fix Floating Buttons (Bubbles Only) */
+    .float-wa span, .chat-toggle span {
+        display: none; /* Hide text on mobile */
+    }
     
-    /* Navbar Tweaks */
-    .brand-text p { font-size: 0.65rem; }
+    .float-wa, .chat-toggle {
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%; /* Circle shape */
+        justify-content: center;
+    }
+    
+    .float-wa i, .chat-toggle i { font-size: 1.4rem; } /* Bigger icon */
+
+    /* 7. Fix Chat Window Position */
+    .chat-window {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 80px;
+        width: 90%; /* Fit screen width */
+    }
+
+    /* 8. Fix Lightbox */
+    .lightbox-content {
+        width: 95%;
+        margin-top: 30%;
+    }
+    .close-lightbox {
+        right: 20px;
+        top: 20px;
+    }
 }
