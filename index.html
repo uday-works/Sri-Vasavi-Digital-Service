@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Sri Vasavi Digital Service in Yemmiganur: Best Website Design, MCA Final Year Project Help, and Digital Marketing for local businesses. Affordable Web Development in Kurnool District.">
+    <meta name="keywords" content="Website design Yemmiganur, Student project websites Yemmiganur, MCA final year project help, Business website development Yemmiganur, Digital marketing agency Yemmiganur, Local SEO services Kurnool">
+    <meta name="author" content="Somapuram Uday">
+    
+    <title>Sri Vasavi Digital | Website Design & Student Projects Yemmiganur</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Navbar Smoothness & Size Increase */
+        .navbar {
+            padding: 1.2rem 0; /* Increased size */
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .navbar a {
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .navbar a:hover {
+            transform: translateY(-2px); /* Subtle lift effect */
+        }
+
+        /* Language Dropdown Style */
+        .lang-select {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-weight: 600;
+            color: #334155;
+            background: #f8fafc;
+            cursor: pointer;
+            margin-left: 15px;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+        .lang-select:hover { border-color: #2563eb; }
+        
+        /* Chatbot Styles */
+        .chat-toggle { position: fixed; bottom: 20px; left: 20px; background: #0f172a; color: white; padding: 12px 18px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .chat-toggle:hover { transform: translateY(-3px); background: #334155; }
+        .chat-window { display: none; position: fixed; bottom: 80px; left: 20px; width: 300px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1001; overflow: hidden; border: 1px solid #e2e8f0; font-size: 0.9rem; }
+        .chat-header { background: #0f172a; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-body { padding: 15px; max-height: 350px; overflow-y: auto; background: #f8fafc; }
+        .bot-msg { background: #e2e8f0; padding: 8px 12px; border-radius: 8px 8px 8px 0; color: #334155; width: fit-content; max-width: 90%; margin-bottom: 10px; }
+        .chat-options { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; }
+        .chat-btn { background: white; border: 1px solid #2563eb; color: #2563eb; padding: 8px; border-radius: 6px; text-align: left; cursor: pointer; font-size: 0.85rem; transition: 0.2s; }
+        .chat-btn:hover { background: #eff6ff; }
+        .meet-link { display: block; text-align: center; background: #ea580c; color: white; padding: 8px; border-radius: 6px; margin-top: 10px; text-decoration: none; font-weight: 600; transition: background 0.3s; }
+        .meet-link:hover { background: #c2410c; }
+        
+        .nav-gap { display: flex; gap: 2rem; align-items: center; }
+        @media (max-width: 768px) { .nav-gap { gap: 1rem; } .lang-select { font-size: 0.8rem; padding: 3px; } }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/918522836109?text=Hi,%20I%20have%20a%20query%20regarding%20websites%20or%20projects" class="float-wa" rel="noopener noreferrer" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> <span>Chat Now</span>
+    </a>
+
+    <div class="chat-toggle" onclick="toggleChat()">
+        <i class="fa-regular fa-comments"></i> <span>Quick Help</span>
+    </div>
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <h4>Sri Vasavi Help Desk</h4>
+            <span class="close-chat" onclick="toggleChat()" style="cursor:pointer;">×</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot-msg">Hi! Need help with a Business Website or Student Project?</div>
+            <div class="chat-options">
+                <button class="chat-btn" onclick="askQuestion(1)">🔒 Is my Project Safe/Private?</button>
+                <button class="chat-btn" onclick="askQuestion(2)">📍 I am outside Yemmiganur?</button>
+                <button class="chat-btn" onclick="askQuestion(3)">🎓 Will you train me for Viva?</button>
+            </div>
+            <a href="mailto:udayworksoffical@gmail.com?subject=Book%20Google%20Meet%20Session" class="meet-link"><i class="fa-solid fa-video"></i> Book Google Meet</a>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="brand">
+                <div class="brand-icon"><i class="fa-solid fa-shapes"></i></div>
+                <div class="brand-text">
+                    <h2>Sri Vasavi</h2>
+                    <p>Digital Service</p>
+                </div>
+            </div>
+            
+            <div class="nav-gap">
+                <select class="lang-select" id="languageSelector" onchange="changeLanguage()">
+                    <option value="en">English</option>
+                    <option value="te">Telugu (తెలుగు)</option>
+                    <option value="hi">Hindi (हिंदी)</option>
+                    <option value="kn">Kannada (ಕನ್ನಡ)</option>
+                </select>
+
+                <a href="work.html" style="color:var(--dark); font-size:1rem; font-weight:600;">Portfolio</a>
+                <a href="testimonials.html" style="color:var(--dark); font-size:1rem; font-weight:600;">Testimonials</a>
+                <a href="#contact" class="btn-call-nav"><i class="fa-regular fa-envelope"></i> Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-badge"><i class="fa-solid fa-location-dot"></i> Yemmiganur Based</div>
+            
+            <h1 id="heroTitle">Websites for <span class="highlight">Business</span><br>& Support for <span class="highlight-blue">Students</span>.</h1>
+            <p class="subtext" id="heroSub">We don't sell templates. We build custom solutions. Assignments, Projects, and Real Explanations.</p>
+            
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary" id="btnQuote">Get a Free Quote</a>
+                <a href="work.html" class="btn-text" id="btnWork" style="margin-left: 1rem; text-decoration: underline;">See Our Work</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="trust-logic-section">
+        <div class="container">
+            <div class="logic-grid">
+                <div class="logic-card local">
+                    <div class="icon-circle"><i class="fa-solid fa-store"></i></div>
+                    <h3 id="trustTitle">Local Shop for Trust</h3>
+                    <p id="trustText">We are physically present in Yemmiganur. <strong>Your money and project are safe.</strong></p>
+                    
+                    <a href="https://www.google.com/maps/place/15%C2%B045'59.3%22N+77%C2%B028'53.1%22E/@15.7664812,77.4788532,17z/data=!3m1!4b1!4m4!3m3!8m2!3d15.7664812!4d77.4814281?hl=en&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="map-link">
+                        <i class="fa-solid fa-map-location-dot"></i> View Shop Location
+                    </a>
+                </div>
+                <div class="logic-card remote">
+                    <div class="icon-circle"><i class="fa-solid fa-laptop-house"></i></div>
+                    <h3 id="speedTitle">Remote for Speed</h3>
+                    <p id="speedText">Connect via Google Meet. <strong>Save your travel time. We solve it instantly online.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <div class="container">
+            <h2 class="section-title" id="worksTitle">Selected Works</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-header" style="background: #eff6ff; height: 160px; display: flex; align-items: center; justify-content: center; color: #64748b;">
+                        <i class="fa-solid fa-image fa-2x"></i>   [PG Website Screenshot]
+                    </div>
+                    <div class="project-body">
+                        <span style="background: #0f172a; color: white; padding: 2px 8px; font-size: 0.7rem; border-radius: 4px; text-transform: uppercase;">Business</span>
+                        <h4 style="margin-top: 10px;">Luxury PG & Hostel</h4>
+                        <div style="font-size: 0.9rem; color: #475569; margin-top: 10px;">
+                            <p><strong>Problem:</strong> Invisible on Google Maps.</p>
+                            <p style="background: #f0fdf4; color: #166534; padding: 5px; border-radius: 4px; margin-top: 5px; font-weight: 600;">Result: Funnels valid customers.</p>
+                        </div>
+                        <a href="#" class="btn-link" style="margin-top: 10px; display: inline-block;">View Live Site</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header" style="background: #faf5ff; height: 160px; display: flex; align-items: center; justify-content: center; color: #64748b;">
+                        <i class="fa-solid fa-lock fa-2x"></i>   [Confidential]
+                    </div>
+                    <div class="project-body">
+                        <span style="background: #2563eb; color: white; padding: 2px 8px; font-size: 0.7rem; border-radius: 4px; text-transform: uppercase;">Student</span>
+                        <h4 style="margin-top: 10px;">Lung Cancer AI</h4>
+                        <div style="font-size: 0.9rem; color: #475569; margin-top: 10px;">
+                            <p><strong>Problem:</strong> Complex ML logic for Viva.</p>
+                            <p style="background: #faf5ff; color: #9333ea; padding: 5px; border-radius: 4px; margin-top: 5px; font-weight: 600;">Result: Cleared with 'A' Grade.</p>
+                        </div>
+                        <span class="btn-link disabled" style="margin-top: 10px; display: inline-block; color: #94a3b8;">Confidential</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header" style="background: #f0fdf4; height: 160px; display: flex; align-items: center; justify-content: center; color: #64748b;">
+                        <i class="fa-brands fa-github fa-2x"></i>
+                    </div>
+                    <div class="project-body">
+                        <span style="background: #059669; color: white; padding: 2px 8px; font-size: 0.7rem; border-radius: 4px; text-transform: uppercase;">Engineering</span>
+                        <h4 style="margin-top: 10px;">EduTrack System</h4>
+                        <div style="font-size: 0.9rem; color: #475569; margin-top: 10px;">
+                            <p><strong>Stack:</strong> MERN Full Stack.</p>
+                            <p style="background: #f1f5f9; color: #334155; padding: 5px; border-radius: 4px; margin-top: 5px; font-weight: 600;">Result: High Performance.</p>
+                        </div>
+                        <a href="https://github.com/udaycodespace/EduTrack" target="_blank" rel="noopener noreferrer" class="btn-link" style="margin-top: 10px; display: inline-block;">View Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="work.html" class="btn-primary" style="background: transparent; border: 2px solid #2563eb; color: #2563eb;">
+                    View All Categories <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section" id="contact">
+        <div class="container">
+            <div class="form-wrapper">
+                <h2 class="form-title" id="formTitle">Get a Cost Estimate</h2>
+                <p class="form-sub" id="formSub">Fill this. It opens WhatsApp directly.</p>
+                <form id="whatsappForm">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>I am a...</label>
+                        <select id="userType">
+                            <option value="Business Owner">Business Owner</option>
+                            <option value="Student">Student</option>
+                            <option value="Individual">Individual</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>I need help with...</label>
+                        <select id="serviceType">
+                            <option value="Website Development">Website Development</option>
+                            <option value="Final Year Project">Final Year Project</option>
+                            <option value="Assignment / Portfolio">Assignment / Portfolio</option>
+                            <option value="CS Subject Explanation">CS Subject Explanation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Short Description</label>
+                        <textarea id="message" rows="3" placeholder="Ex: I need a website for my clothes shop..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">
+                        <i class="fa-brands fa-whatsapp"></i> Send on WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Leadership & Trust</h2>
+            <div class="team-grid">
+                <div class="team-card trust-card">
+                    <div class="icon-box-team"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>S Veera Basava Raju</h3>
+                    <p class="role">Proprietor</p>
+                    <p class="desc">Oversees all business operations, financial transparency, and ensures customer satisfaction.</p>
+                    <div style="margin-top: 10px; font-size: 0.85rem; color: #94a3b8; font-style: italic;">Socials coming soon...</div>
+                </div>
+
+                <div class="team-card tech-card">
+                    <div class="icon-box-team"><i class="fa-solid fa-code"></i></div>
+                    <h3>Somapuram Uday</h3>
+                    <p class="role">Tech Lead & Developer</p>
+                    <p class="desc">Lead Developer handling full-stack solutions, AI logic, and student mentorship.</p>
+                    <div style="margin-top: 15px; display: flex; gap: 15px; justify-content: center;">
+                        <a href="https://instagram.com/udayxworks" target="_blank" rel="noopener noreferrer" style="color: #e1306c; font-size: 1.2rem;" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://uday-works.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #2563eb; font-size: 1.2rem;" title="Personal Portfolio"><i class="fa-solid fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Sri Vasavi Digital</h3>
+                    <p>Yemmiganur, Andhra Pradesh</p>
+                </div>
+                <div class="footer-buttons">
+                    <a href="tel:+918522836109" class="btn-white">Call Now</a>
+                </div>
+            </div>
+            <p class="copyright">© 2026 Sri Vasavi Digital Service.</p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                heroTitle: "Websites for <span class='highlight'>Business</span><br>& Support for <span class='highlight-blue'>Students</span>.",
+                heroSub: "We don't sell templates. We build custom solutions. Assignments, Projects, and Real Explanations.",
+                btnQuote: "Get a Free Quote",
+                btnWork: "See Our Work",
+                trustTitle: "Local Shop for Trust",
+                trustText: "We are physically present in Yemmiganur. <strong>Your money and project are safe.</strong>",
+                speedTitle: "Remote for Speed",
+                speedText: "Connect via Google Meet. <strong>Save your travel time. We solve it instantly online.</strong>",
+                worksTitle: "Selected Works",
+                formTitle: "Get a Cost Estimate",
+                formSub: "Fill this. It opens WhatsApp directly."
+            },
+            te: { 
+                heroTitle: "<span class='highlight'>Business</span> కోసం Websites<br>మరియు <span class='highlight-blue'>Students</span> కోసం Project Support.",
+                heroSub: "మేము Templates అమ్మము. మీ కోసం <b>Custom Solutions</b> బిల్డ్ చేస్తాము. Assignments, Projects మరియు <b>Real Explanations</b> ఇస్తాము.",
+                btnQuote: "Free Quote పొందండి",
+                btnWork: "మా Work చూడండి",
+                trustTitle: "Trust కోసం Local Shop",
+                trustText: "మేము <b>Yemmiganur</b> లోనే ఉన్నాము. మీ <b>Money</b> మరియు <b>Project</b> safe గా ఉంటుంది.",
+                speedTitle: "Speed కోసం Remote",
+                speedText: "Google Meet ద్వారా Connect అవ్వండి. మీ <b>Travel Time</b> సేవ్ చేసుకోండి. Online లో <b>Instant</b> గా Solve చేస్తాము.",
+                worksTitle: "మా Selected Works",
+                formTitle: "Cost Estimate పొందండి",
+                formSub: "దీనిని Fill చేయండి. Direct గా WhatsApp ఓపెన్ అవుతుంది."
+            },
+            hi: {
+                heroTitle: "<span class='highlight'>Business</span> के लिए Websites<br>और <span class='highlight-blue'>Students</span> के लिए Project Support.",
+                heroSub: "हम Templates नहीं बेचते. हम <b>Custom Solutions</b> बनाते हैं. Assignments, Projects और <b>Real Explanations</b> देते हैं.",
+                btnQuote: "Free Quote पाएं",
+                btnWork: "हमारा Work देखें",
+                trustTitle: "Trust के लिए Local Shop",
+                trustText: "हम <b>Yemmiganur</b> में ही हैं. आपका <b>Money</b> और <b>Project</b> safe रहेगा.",
+                speedTitle: "Speed के लिए Remote",
+                speedText: "Google Meet से Connect करें. अपना <b>Travel Time</b> बचाएं. हम Online <b>Instant Solve</b> करेंगे.",
+                worksTitle: "हमारे Selected Works",
+                formTitle: "Cost Estimate पाएं",
+                formSub: "इसे भरें. यह सीधा WhatsApp ओपन करेगा."
+            },
+            kn: {
+                heroTitle: "<span class='highlight'>Business</span> ಗಾಗಿ Websites<br>ಮತ್ತು <span class='highlight-blue'>Students</span> ಗಾಗಿ Project Support.",
+                heroSub: "ನಾವು Templates ಮಾರುವುದಿಲ್ಲ. ನಾವು <b>Custom Solutions</b> ಬಿಲ್ಡ್ ಮಾಡುತ್ತೇವೆ. Assignments, Projects ಮತ್ತು <b>Real Explanations</b> ಕೊಡುತ್ತೇವೆ.",
+                btnQuote: "Free Quote ಪಡೆಯಿರಿ",
+                btnWork: "ನಮ್ಮ Work ನೋಡಿ",
+                trustTitle: "Trust ಗಾಗಿ Local Shop",
+                trustText: "ನಾವು <b>Yemmiganur</b> ನಲ್ಲೇ ಇದ್ದೀವಿ. ನಿಮ್ಮ <b>Money</b> ಮತ್ತು <b>Project</b> safe ಆಗಿ ಇರುತ್ತದೆ.",
+                speedTitle: "Speed ಗಾಗಿ Remote",
+                speedText: "Google Meet ಮೂಲಕ Connect ಆಗಿ. ನಿಮ್ಮ <b>Travel Time</b> ಉಳಿಸಿ. ನಾವು Online ನಲ್ಲಿ <b>Instant Solve</b> ಮಾಡುತ್ತೇವೆ.",
+                worksTitle: "ನಮ್ಮ Selected Works",
+                formTitle: "Cost Estimate ಪಡೆಯಿರಿ",
+                formSub: "ಇದನ್ನು Fill ಮಾಡಿ. ಇದು ನೇರವಾಗಿ WhatsApp ಓಪನ್ ಆಗುತ್ತದೆ."
+            }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById("languageSelector").value;
+            const t = translations[lang];
+
+            document.getElementById("heroTitle").innerHTML = t.heroTitle;
+            document.getElementById("heroSub").innerHTML = t.heroSub;
+            document.getElementById("btnQuote").innerText = t.btnQuote;
+            document.getElementById("btnWork").innerText = t.btnWork;
+            document.getElementById("trustTitle").innerText = t.trustTitle;
+            document.getElementById("trustText").innerHTML = t.trustText;
+            document.getElementById("speedTitle").innerText = t.speedTitle;
+            document.getElementById("speedText").innerHTML = t.speedText;
+            document.getElementById("worksTitle").innerText = t.worksTitle;
+            document.getElementById("formTitle").innerText = t.formTitle;
+            document.getElementById("formSub").innerText = t.formSub;
+        }
+
+        // WhatsApp Form Logic
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const userType = document.getElementById('userType').value;
+            const service = document.getElementById('serviceType').value;
+            const msg = document.getElementById('message').value;
+            const finalMessage = `Hi, I am *${name}* (${userType}).%0A%0AI am interested in: *${service}*.%0A%0ADetails: ${msg}`;
+            const phoneNumber = "918522836109";
+            window.open(`https://wa.me/${phoneNumber}?text=${finalMessage}`, '_blank');
+        });
+
+        // Chatbot Logic
+        function toggleChat() {
+            const chat = document.getElementById('chatWindow');
+            chat.style.display = (chat.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function askQuestion(type) {
+            const chatBody = document.getElementById('chatBody');
+            let answer = "";
+            if (type === 1) answer = "<strong>Privacy Policy:</strong> Don't worry! We respect your privacy. We never leak code or data. We have handled many confidential student projects safely.";
+            else if (type === 2) answer = "<strong>Remote Support:</strong> No problem! You don't need to visit the shop. We connect via Google Meet to explain code and solve issues instantly.";
+            else if (type === 3) answer = "<strong>Training:</strong> Yes! If you want to do the project yourself, I can guide you step-by-step and train you on the logic.";
+
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'chat-msg bot-msg';
+            msgDiv.innerHTML = answer;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    </script>
+    
+    <style>
+        .map-link { display: inline-block; margin-top: 1rem; color: #ea580c; font-weight: 600; text-decoration: underline; font-size: 0.95rem; }
+        .map-link:hover { color: #c2410c; }
+    </style>
+
+</body>
+</html>

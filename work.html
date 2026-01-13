@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Sri Vasavi Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .category-label { margin-top: 4rem; margin-bottom: 1.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        .category-label h3 { font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+        
+        .lang-select { padding: 5px 10px; border-radius: 6px; border: 1px solid #cbd5e1; font-weight: 600; color: #334155; background: #f8fafc; cursor: pointer; font-size: 0.9rem; }
+        .float-wa { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 12px 20px; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; z-index: 1000; text-decoration: none; transition: transform 0.3s; }
+        .float-wa:hover { transform: translateY(-3px); }
+
+        .chat-toggle { position: fixed; bottom: 20px; left: 20px; background: #0f172a; color: white; padding: 12px 18px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .chat-toggle:hover { transform: translateY(-3px); background: #334155; }
+        .chat-window { display: none; position: fixed; bottom: 80px; left: 20px; width: 300px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1001; overflow: hidden; border: 1px solid #e2e8f0; font-size: 0.9rem; }
+        .chat-header { background: #0f172a; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .chat-body { padding: 15px; max-height: 350px; overflow-y: auto; background: #f8fafc; }
+        .bot-msg { background: #e2e8f0; padding: 8px 12px; border-radius: 8px 8px 8px 0; color: #334155; width: fit-content; max-width: 90%; margin-bottom: 10px; }
+        .chat-options { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; }
+        .chat-btn { background: white; border: 1px solid #2563eb; color: #2563eb; padding: 8px; border-radius: 6px; text-align: left; cursor: pointer; font-size: 0.85rem; transition: 0.2s; }
+        .chat-btn:hover { background: #eff6ff; }
+        .meet-link { display: block; text-align: center; background: #ea580c; color: white; padding: 8px; border-radius: 6px; margin-top: 10px; text-decoration: none; font-weight: 600; }
+        
+        .nav-gap { display: flex; gap: 2rem; align-items: center; }
+        @media (max-width: 768px) { .nav-gap { gap: 1rem; } }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/918522836109?text=Hi,%20I%20saw%20your%20Portfolio." class="float-wa" rel="noopener noreferrer" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> <span>Chat Now</span>
+    </a>
+
+    <div class="chat-toggle" onclick="toggleChat()">
+        <i class="fa-regular fa-comments"></i> <span>Quick Help</span>
+    </div>
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <h4>Sri Vasavi Help Desk</h4>
+            <span class="close-chat" onclick="toggleChat()" style="cursor:pointer;">×</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot-msg">Hi! How can I help you today?</div>
+            <div class="chat-options">
+                <button class="chat-btn" onclick="askQuestion(1)">🔒 Student Privacy?</button>
+                <button class="chat-btn" onclick="askQuestion(2)">📍 Remote Support?</button>
+                <button class="chat-btn" onclick="askQuestion(3)">🎓 Training Available?</button>
+            </div>
+            <a href="mailto:udayworksoffical@gmail.com?subject=Book%20Google%20Meet%20Session" class="meet-link"><i class="fa-solid fa-video"></i> Book Google Meet</a>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="brand">
+                <a href="index.html" style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:10px;">
+                    <div class="brand-icon"><i class="fa-solid fa-shapes"></i></div>
+                    <div class="brand-text">
+                        <h2>Sri Vasavi</h2>
+                        <p>Digital Service</p>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-gap">
+                <select class="lang-select" id="languageSelector" onchange="changeLanguage()">
+                    <option value="en">English</option>
+                    <option value="te">Telugu (తెలుగు)</option>
+                    <option value="hi">Hindi (हिंदी)</option>
+                    <option value="kn">Kannada (ಕನ್ನಡ)</option>
+                </select>
+                <a href="index.html" style="font-weight:600; color:#475569;">Home</a>
+                <a href="work.html" style="font-weight:700; color:#2563eb;">Portfolio</a>
+                <a href="testimonials.html" style="font-weight:600; color:#475569;">Testimonials</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 3rem 1.5rem;">
+        
+        <h1 style="text-align:center; margin-bottom: 3rem;" id="portTitle">Our Work Portfolio</h1>
+
+        <div class="category-label">
+            <h3><i class="fa-solid fa-store" style="color:#2563eb;"></i> Business</h3>
+        </div>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-header" style="background:#eff6ff; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
+                    <i class="fa-solid fa-bed fa-2x"></i>
+                </div>
+                <div class="project-body">
+                    <h4>Luxury PG Hostel</h4>
+                    <p style="font-size:0.9rem; margin:10px 0;"><strong>Problem:</strong> Invisible on Maps.<br><strong>Solution:</strong> Website + SEO.<br><strong>Result:</strong> Daily Leads.</p>
+                    <a href="#" class="btn-link">View Live Site</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-header" style="background:#eff6ff; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
+                    <i class="fa-solid fa-shirt fa-2x"></i>
+                </div>
+                <div class="project-body">
+                    <h4>Smart Laundry</h4>
+                    <p style="font-size:0.9rem; margin:10px 0;"><strong>Problem:</strong> Manual Ordering.<br><strong>Solution:</strong> WhatsApp Catalog.<br><strong>Result:</strong> Professionalism.</p>
+                    <a href="#" class="btn-link">View Live Site</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-label" style="border-color:#9333ea;">
+            <h3><i class="fa-solid fa-graduation-cap" style="color:#9333ea;"></i> Students</h3>
+        </div>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-header" style="background:#faf5ff; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
+                    <i class="fa-solid fa-lock fa-2x"></i>
+                </div>
+                <div class="project-body">
+                    <h4>Lung Cancer AI</h4>
+                    <p style="font-size:0.9rem; margin:10px 0;"><strong>Task:</strong> Final Year ML Project.<br><strong>Result:</strong> 'A' Grade in Viva.</p>
+                    <span style="color:#94a3b8; font-size:0.85rem;">Confidential</span>
+                </div>
+            </div>
+             <div class="project-card">
+                <div class="project-header" style="background:#faf5ff; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
+                    <i class="fa-solid fa-lock fa-2x"></i>
+                </div>
+                <div class="project-body">
+                    <h4>Network Security</h4>
+                    <p style="font-size:0.9rem; margin:10px 0;"><strong>Task:</strong> DDoS Simulation.<br><strong>Result:</strong> Full Documentation.</p>
+                    <span style="color:#94a3b8; font-size:0.85rem;">Confidential</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-label" style="border-color:#10b981;">
+            <h3><i class="fa-solid fa-code" style="color:#10b981;"></i> Others (Engineering)</h3>
+        </div>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-header" style="background:#ecfdf5; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
+                    <i class="fa-brands fa-github fa-2x"></i>
+                </div>
+                <div class="project-body">
+                    <h4>EduTrack</h4>
+                    <p style="font-size:0.9rem; margin:10px 0;">Full Stack Student Management System.</p>
+                    <a href="https://github.com/udaycodespace/EduTrack" target="_blank" class="btn-link">GitHub Link</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-header" style="background:#ecfdf5; height:150px; display:flex; justify-content:center; align-items:center; color:#64748b;">
+                    <i class="fa-brands fa-github fa-2x"></i>
+                </div>
+                <div class="project-body">
+                    <h4>Forest Fire AI</h4>
+                    <p style="font-size:0.9rem; margin:10px 0;">Disaster Prediction using Scikit-Learn.</p>
+                    <a href="https://github.com/udaycodespace/Predict-forest-fire" target="_blank" class="btn-link">GitHub Link</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="background:#0f172a; color:white; padding:2rem; text-align:center;">
+        <p>© 2026 Sri Vasavi Digital Service.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            en: { portTitle: "Our Work Portfolio" },
+            te: { portTitle: "మా Work Portfolio" },
+            hi: { portTitle: "हमारा Work Portfolio" },
+            kn: { portTitle: "ನಮ್ಮ Work Portfolio" }
+        };
+
+        function changeLanguage() {
+            const lang = document.getElementById("languageSelector").value;
+            document.getElementById("portTitle").innerText = translations[lang].portTitle;
+        }
+
+        function toggleChat() {
+            const chat = document.getElementById('chatWindow');
+            chat.style.display = (chat.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function askQuestion(type) {
+            const chatBody = document.getElementById('chatBody');
+            let answer = "";
+            if (type === 1) answer = "<strong>Privacy:</strong> We never leak code or data.";
+            else if (type === 2) answer = "<strong>Remote:</strong> We connect via Google Meet.";
+            else if (type === 3) answer = "<strong>Training:</strong> Yes, I guide you step-by-step.";
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'chat-msg bot-msg';
+            msgDiv.innerHTML = answer;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    </script>
+</body>
+</html>
